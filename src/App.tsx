@@ -12,8 +12,7 @@ import ResultsCount from "./components/ResultsCount";
 import SearchForm from "./components/SearchForm";
 import Sidebar, { SidebarTop } from "./components/Sidebar";
 import SortingControls from "./components/SortingControls";
-import { useActiveId } from "./lib/hooks/useActiveId";
-import { useJobItems } from "./lib/hooks/useJobItems";
+import { useActiveId, useJobItems } from "./lib/hooks";
 
 function App() {
   const [searchText, setSearchText] = useState("react");
