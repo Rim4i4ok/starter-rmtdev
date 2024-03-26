@@ -17,13 +17,18 @@ import PaginationControls from "./components/PaginationControls";
 function App() {
   const [searchText, setSearchText] = useState("react");
   const [jobItems, setJobItems] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     if (!searchText) return;
 
     const fetchData = async () => {
+      setIsLoading(true);
+
       const response = await fetch(API_URL + `?search=${searchText}`);
       const data = await response.json();
+
+      setIsLoading(false);
       setJobItems(data.jobItems);
     };
 
@@ -50,7 +55,7 @@ function App() {
             <SortingControls />
           </SidebarTop>
 
-          <JobList jobItems={jobItems} />
+          <JobList jobItems={jobItems} isLoading={isLoading} />
 
           <PaginationControls />
         </Sidebar>
