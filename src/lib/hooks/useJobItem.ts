@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import { API_URL } from "../constants";
+import { JobItemExpanded } from "../types";
 
 export function useJobItem(id: number | null) {
-  const [jobItem, setJobItem] = useState(null);
+  const [jobItem, setJobItem] = useState<JobItemExpanded | null>(null);
 
   useEffect(() => {
     if (!id) return;
