@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { API_URL } from "./constants";
-import { JobItem } from "./types";
+import { JobItem } from "../types";
+import { API_URL } from "../constants";
 
 export function useJobItems(searchText: string) {
   const [jobItems, setJobItems] = useState<JobItem[]>([]);
