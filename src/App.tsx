@@ -12,11 +12,13 @@ import ResultsCount from "./components/ResultsCount";
 import SearchForm from "./components/SearchForm";
 import Sidebar, { SidebarTop } from "./components/Sidebar";
 import SortingControls from "./components/SortingControls";
-import { useJobItems } from "./lib/hooks";
+import { useActiveId } from "./lib/hooks/useActiveId";
+import { useJobItems } from "./lib/hooks/useJobItems";
 
 function App() {
   const [searchText, setSearchText] = useState("react");
   const { isLoading, jobItemsSliced: jobItems } = useJobItems(searchText);
+  const activeId = useActiveId();
 
   return (
     <>
