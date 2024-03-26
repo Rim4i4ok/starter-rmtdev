@@ -1,39 +1,22 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Background from "./components/Background";
+import BookmarksButton from "./components/BookmarksButton";
 import Container from "./components/Container";
 import Footer from "./components/Footer";
 import Header, { HeaderTop } from "./components/Header";
-import { API_URL } from "./lib/constants";
+import JobItemContent from "./components/JobItemContent";
+import JobList from "./components/JobList";
 import Logo from "./components/Logo";
-import BookmarksButton from "./components/BookmarksButton";
+import PaginationControls from "./components/PaginationControls";
+import ResultsCount from "./components/ResultsCount";
 import SearchForm from "./components/SearchForm";
 import Sidebar, { SidebarTop } from "./components/Sidebar";
-import JobItemContent from "./components/JobItemContent";
-import ResultsCount from "./components/ResultsCount";
 import SortingControls from "./components/SortingControls";
-import JobList from "./components/JobList";
-import PaginationControls from "./components/PaginationControls";
+import { useJobItems } from "./lib/hooks";
 
 function App() {
   const [searchText, setSearchText] = useState("react");
-  const [jobItems, setJobItems] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    if (!searchText) return;
-
-    const fetchData = async () => {
-      setIsLoading(true);
-
-      const response = await fetch(API_URL + `?search=${searchText}`);
-      const data = await response.json();
-
-      setIsLoading(false);
-      setJobItems(data.jobItems);
-    };
-
-    fetchData();
-  }, [searchText]);
+  const { isLoading, jobItems } = useJobItems(searchText);
 
   return (
     <>
