@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import { API_URL } from "./constants";
+import { JobItem } from "./types";
 
 export function useJobItems(searchText: string) {
-  const [jobItems, setJobItems] = useState([]);
+  const [jobItems, setJobItems] = useState<JobItem[]>([]);
   const [isLoading, setIsLoading] = useState(true);
 
   const jobItemsSliced = jobItems.slice(0, 7);
