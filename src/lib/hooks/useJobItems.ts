@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { API_URL } from "../constants";
 import { JobItem } from "../types";
-import toast from "react-hot-toast";
+import { handleError } from "../utils";
 
 type JobItemsApiResponse = {
   public: boolean;
@@ -33,9 +33,7 @@ export function useJobItems(searchText: string) {
       refetchOnWindowFocus: false,
       retry: false,
       enabled: Boolean(searchText),
-      onError: (error) => {
-        toast.error(error.message);
-      },
+      onError: handleError,
     }
   );
 
