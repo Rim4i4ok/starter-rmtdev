@@ -1,6 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { API_URL } from "../constants";
 import { JobItemExpanded } from "../types";
+import toast from "react-hot-toast";
 
 type JobItemApiResponse = {
   public: boolean;
@@ -30,7 +31,7 @@ export function useJobItem(id: number | null) {
       retry: false,
       enabled: Boolean(id),
       onError: (error) => {
-        console.error(error);
+        toast.error(error.message);
       },
     }
   );
