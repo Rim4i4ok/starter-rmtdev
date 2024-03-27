@@ -12,15 +12,16 @@ import ResultsCount from "./components/ResultsCount";
 import SearchForm from "./components/SearchForm";
 import Sidebar, { SidebarTop } from "./components/Sidebar";
 import SortingControls from "./components/SortingControls";
-import { useJobItems } from "./lib/hooks";
+import { useDebounce, useJobItems } from "./lib/hooks";
 
 function App() {
-  const [searchText, setSearchText] = useState("react");
+  const [searchText, setSearchText] = useState("");
+  const debouncedSearchText = useDebounce(searchText, 200);
   const {
     isLoading,
     jobItemsSliced: jobItems,
     totalNumberOfResults,
-  } = useJobItems(searchText);
+  } = useJobItems(debouncedSearchText);
 
   return (
     <>
