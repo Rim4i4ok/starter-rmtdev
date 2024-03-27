@@ -4,7 +4,7 @@ import { API_URL } from "../constants";
 
 export function useJobItems(searchText: string) {
   const [jobItems, setJobItems] = useState<JobItem[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
 
   const totalNumberOfResults = jobItems.length;
   const jobItemsSliced = jobItems.slice(0, 7);
