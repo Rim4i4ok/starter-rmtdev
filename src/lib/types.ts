@@ -1,3 +1,5 @@
+export type Direction = "next" | "previous";
+
 export type JobItem = {
   id: number;
   badgeLetters: string;
