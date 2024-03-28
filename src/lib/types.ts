@@ -1,4 +1,5 @@
 export type Direction = "next" | "previous";
+export type SortBy = "relevant" | "recent";
 
 export type JobItem = {
   id: number;
