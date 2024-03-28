@@ -28,7 +28,7 @@ function App() {
   // derived / computed state
   const totalNumberOfResults = jobItems.length;
   const totalNumberOfPages = Math.ceil(totalNumberOfResults / RESULTS_PER_PAGE);
-  const jobItemsSorted = jobItems.sort((a, b) => {
+  const jobItemsSorted = [...jobItems].sort((a, b) => {
     if (sortBy === "relevant") {
       return b.relevanceScore - a.relevanceScore;
     } else {
