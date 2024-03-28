@@ -11,7 +11,7 @@ import PaginationControls from "./components/PaginationControls/PaginationContro
 import ResultsCount from "./components/ResultsCount";
 import SearchForm from "./components/SearchForm";
 import Sidebar, { SidebarTop } from "./components/Sidebar";
-import SortingControls from "./components/SortingControls";
+import SortingControls from "./components/SortingControls/SortingControls";
 import { useDebounce, useJobItems } from "./lib/hooks";
 import { Toaster } from "react-hot-toast";
 import { Direction, SortBy } from "./lib/types";

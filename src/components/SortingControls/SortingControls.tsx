@@ -1,4 +1,5 @@
-import { SortBy } from "../lib/types";
+import { SortBy } from "../../lib/types";
+import SortingButton from "./components/SortingButton";
 
 type SortingControlsProps = {
   sortBy: SortBy;
@@ -13,23 +14,18 @@ export default function SortingControls({
     <section className="sorting">
       <i className="fa-solid fa-arrow-down-short-wide"></i>
 
-      <button
-        className={`sorting__button sorting__button--relevant ${
-          sortBy === "relevant" && "sorting__button--active"
-        }`}
+      <SortingButton
         onClick={() => onClick("relevant")}
+        isActive={sortBy === "relevant"}
       >
         Relevant
-      </button>
-
-      <button
-        className={`sorting__button sorting__button--recent ${
-          sortBy === "recent" && "sorting__button--active"
-        }`}
+      </SortingButton>
+      <SortingButton
         onClick={() => onClick("recent")}
+        isActive={sortBy === "recent"}
       >
         Recent
-      </button>
+      </SortingButton>
     </section>
   );
 }
