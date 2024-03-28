@@ -3,11 +3,13 @@ import PaginationButton from "./components/PaginationButton";
 
 type PaginationControlsProps = {
   currentPage: number;
+  totalNumberOfPages: number;
   onChangePage: (direction: Direction) => void;
 };
 
 export default function PaginationControls({
   currentPage,
+  totalNumberOfPages,
   onChangePage,
 }: PaginationControlsProps) {
   return (
@@ -19,11 +21,13 @@ export default function PaginationControls({
           onClick={() => onChangePage("previous")}
         />
       )}
-      <PaginationButton
-        currentPage={currentPage}
-        direction="next"
-        onClick={() => onChangePage("next")}
-      />
+      {currentPage < totalNumberOfPages && (
+        <PaginationButton
+          currentPage={currentPage}
+          direction="next"
+          onClick={() => onChangePage("next")}
+        />
+      )}
     </section>
   );
 }

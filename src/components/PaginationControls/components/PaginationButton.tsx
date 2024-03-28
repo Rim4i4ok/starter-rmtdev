@@ -14,7 +14,10 @@ function PaginationButton({
 }: PaginationButtonProps) {
   return (
     <button
-      onClick={onClick}
+      onClick={(e) => {
+        onClick();
+        e.target.blur();
+      }}
       className={`pagination__button pagination__button--${direction}`}
     >
       {direction === "previous" && (
