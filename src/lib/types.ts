@@ -5,7 +5,7 @@ export type JobItem = {
   badgeLetters: string;
   company: string;
   daysAgo: number;
-  relevenceScore: number;
+  relevanceScore: number;
   title: string;
 };
 
