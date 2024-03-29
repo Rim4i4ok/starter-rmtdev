@@ -1,4 +1,4 @@
-import { createContext, useMemo, useState } from "react";
+import { createContext, useCallback, useMemo, useState } from "react";
 import { RESULTS_PER_PAGE } from "../lib/constants";
 import { useSearchQuery, useSearchTextContext } from "../lib/hooks";
 import { SortBy, Direction, JobItem } from "../lib/types";
@@ -59,18 +59,18 @@ export function JobItemContextProvider({
 
   // event handlers / actions
 
-  const handleChangePage = (direction: Direction) => {
+  const handleChangePage = useCallback((direction: Direction) => {
     if (direction === "next") {
       setCurrentPage((prev) => prev + 1);
     } else {
       setCurrentPage((prev) => prev - 1);
     }
-  };
+  }, []);
 
-  const handleChangeSortBy = (newSortBy: SortBy) => {
+  const handleChangeSortBy = useCallback((newSortBy: SortBy) => {
     setCurrentPage(1);
     setSortBy(newSortBy);
-  };
+  }, []);
 
   const contextValue = useMemo(
     () => ({
