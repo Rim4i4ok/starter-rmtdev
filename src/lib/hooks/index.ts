@@ -7,3 +7,4 @@ export { useJobItems } from "./useJobItems";
 export { useLocalStorage } from "./useLocalStorage";
 export { useOnClickOutside } from "./useOnClickOutside";
 export { useSearchQuery } from "./useSearchQuery";
+export { useSearchTextContext } from "./useSearchTextContext";

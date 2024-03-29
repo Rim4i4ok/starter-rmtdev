@@ -5,6 +5,7 @@ import App from "./App.tsx";
 import "./index.css";
 import BookmarksContextProvider from "./contexts/BookmarksContextProvider.tsx";
 import ActiveIdContextProvider from "./contexts/ActiveIdContextProvider.tsx";
+import { SearchTextContextProvider } from "./contexts/SearchTextContextProvider.tsx";
 
 const queryClient = new QueryClient();
 
@@ -13,7 +14,9 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
     <QueryClientProvider client={queryClient}>
       <BookmarksContextProvider>
         <ActiveIdContextProvider>
-          <App />
+          <SearchTextContextProvider>
+            <App />
+          </SearchTextContextProvider>
         </ActiveIdContextProvider>
       </BookmarksContextProvider>
     </QueryClientProvider>
