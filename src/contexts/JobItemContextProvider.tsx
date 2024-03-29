@@ -11,6 +11,7 @@ type TJobItemContext = {
   jobItems: JobItem[];
   jobItemsSortedAndSliced: JobItem[];
   isLoading: boolean;
+  sortBy: SortBy;
   totalNumberOfPages: number;
   totalNumberOfResults: number;
   currentPage: number;
@@ -69,6 +70,7 @@ export function JobItemContextProvider({
         jobItems,
         jobItemsSortedAndSliced,
         isLoading,
+        sortBy,
         totalNumberOfPages,
         totalNumberOfResults,
         currentPage,
