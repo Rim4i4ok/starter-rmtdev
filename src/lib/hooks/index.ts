@@ -3,6 +3,7 @@ export { useActiveIdContext } from "./useActiveIdContext";
 export { useBookmarksContext } from "./useBookmarksContext";
 export { useDebounce } from "./useDebounce";
 export { useJobItem } from "./useJobItem";
+export { useJobItemContext } from "./useJobItemContext";
 export { useJobItems } from "./useJobItems";
 export { useLocalStorage } from "./useLocalStorage";
 export { useOnClickOutside } from "./useOnClickOutside";
