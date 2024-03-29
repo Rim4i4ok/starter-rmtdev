@@ -1,4 +1,5 @@
 export { useActiveId } from "./useActiveId";
+export { useActiveIdContext } from "./useActiveIdContext";
 export { useBookmarksContext } from "./useBookmarksContext";
 export { useDebounce } from "./useDebounce";
 export { useJobItem } from "./useJobItem";
